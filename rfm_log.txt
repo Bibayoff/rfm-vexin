@@ -1,1 +1,146 @@
  
+[2026-05-13 13:57:57] ============================================================
+[2026-05-13 13:57:57] INICIANDO ANÁLISIS RFM DIARIO — VEXIN
+[2026-05-13 13:57:57] ============================================================
+[2026-05-13 13:57:57] Leyendo Excel de Odoo...
+[2026-05-13 13:58:01] Columnas encontradas: ['Número', 'Fecha', 'Empresa', 'Etiqueta', 'Crédito', 'Débito', 'Subtotal', 'Vendedor']
+[2026-05-13 13:58:01] ERROR: No se encontraron todas las columnas. Encontradas: {'fecha': 'Fecha', 'total': 'Subtotal'}
+[2026-05-13 14:15:10] ============================================================
+[2026-05-13 14:15:10] INICIANDO ANÁLISIS RFM DIARIO — VEXIN
+[2026-05-13 14:15:10] ============================================================
+[2026-05-13 14:15:10] Leyendo Excel de Odoo...
+[2026-05-13 14:15:12] Columnas encontradas: ['Número', 'Fecha', 'Cliente', 'Etiqueta', 'Crédito', 'Débito', 'Subtotal', 'Vendedor', 'Empresa']
+[2026-05-13 14:15:12] Columnas mapeadas: {'cliente': 'Cliente', 'fecha': 'Fecha', 'total': 'Subtotal'}
+[2026-05-13 14:15:13] Registros válidos para análisis: 3873
+[2026-05-13 14:15:13] Calculando R, F, M...
+[2026-05-13 14:15:13] RFM calculado. Segmentos: {'Necesita atención': 147, 'Hibernando': 99, 'Champion': 59, 'Nuevo prometedor': 47, 'Alto valor potencial': 45, 'Leal': 19, 'No puedo perderlos': 14, 'En riesgo': 6}
+[2026-05-13 14:15:13] Llamando a Claude para generar dashboard HTML...
+[2026-05-13 14:15:13] ❌ ERROR: "Could not resolve authentication method. Expected one of api_key, auth_token, or credentials to be set. Or for one of the `X-Api-Key` or `Authorization` headers to be explicitly omitted"
+[2026-05-13 14:15:13] Traceback (most recent call last):
+  File "C:\Users\siste\rfm-vexin\rfm_diario.py", line 225, in main
+    html = generar_html_con_claude(rfm)
+  File "C:\Users\siste\rfm-vexin\rfm_diario.py", line 185, in generar_html_con_claude
+    message = client.messages.create(
+        model="claude-opus-4-5",
+        max_tokens=8000,
+        messages=[{"role": "user", "content": prompt}]
+    )
+  File "C:\Users\siste\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\anthropic\_utils\_utils.py", line 294, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Users\siste\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\anthropic\resources\messages\messages.py", line 1003, in create
+    return self._post(
+           ~~~~~~~~~~^
+        "/v1/messages",
+        ^^^^^^^^^^^^^^^
+    ...<30 lines>...
+        stream_cls=Stream[RawMessageStreamEvent],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\siste\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\anthropic\_base_client.py", line 1374, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\siste\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\anthropic\_base_client.py", line 1064, in request
+    request = self._build_request(options, retries_taken=retries_taken)
+  File "C:\Users\siste\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\anthropic\_base_client.py", line 522, in _build_request
+    headers = self._build_headers(options, retries_taken=retries_taken)
+  File "C:\Users\siste\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\anthropic\_base_client.py", line 452, in _build_headers
+    self._validate_headers(headers_dict, custom_headers)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\siste\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\anthropic\_client.py", line 385, in _validate_headers
+    raise TypeError(
+        '"Could not resolve authentication method. Expected one of api_key, auth_token, or credentials to be set. Or for one of the `X-Api-Key` or `Authorization` headers to be explicitly omitted"'
+    )
+TypeError: "Could not resolve authentication method. Expected one of api_key, auth_token, or credentials to be set. Or for one of the `X-Api-Key` or `Authorization` headers to be explicitly omitted"
+
+[2026-05-13 14:18:42] ============================================================
+[2026-05-13 14:18:42] INICIANDO ANÁLISIS RFM DIARIO — VEXIN
+[2026-05-13 14:18:42] ============================================================
+[2026-05-13 14:18:42] Leyendo Excel de Odoo...
+[2026-05-13 14:18:44] Columnas encontradas: ['Número', 'Fecha', 'Cliente', 'Etiqueta', 'Crédito', 'Débito', 'Subtotal', 'Vendedor', 'Empresa']
+[2026-05-13 14:18:44] Columnas mapeadas: {'cliente': 'Cliente', 'fecha': 'Fecha', 'total': 'Subtotal'}
+[2026-05-13 14:18:44] Registros válidos para análisis: 3873
+[2026-05-13 14:18:44] Calculando R, F, M...
+[2026-05-13 14:18:44] RFM calculado. Segmentos: {'Necesita atención': 147, 'Hibernando': 99, 'Champion': 59, 'Nuevo prometedor': 47, 'Alto valor potencial': 45, 'Leal': 19, 'No puedo perderlos': 14, 'En riesgo': 6}
+[2026-05-13 14:18:44] Llamando a Claude para generar dashboard HTML...
+[2026-05-13 14:18:45] ❌ ERROR: Error code: 401 - {'type': 'error', 'error': {'type': 'authentication_error', 'message': 'invalid x-api-key'}, 'request_id': 'req_011Cb1BmTWpqQ3f4NVadkTeM'}
+[2026-05-13 14:18:45] Traceback (most recent call last):
+  File "C:\Users\siste\rfm-vexin\rfm_diario.py", line 225, in main
+    html = generar_html_con_claude(rfm)
+  File "C:\Users\siste\rfm-vexin\rfm_diario.py", line 185, in generar_html_con_claude
+    message = client.messages.create(
+        model="claude-opus-4-5",
+        max_tokens=8000,
+        messages=[{"role": "user", "content": prompt}]
+    )
+  File "C:\Users\siste\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\anthropic\_utils\_utils.py", line 294, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Users\siste\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\anthropic\resources\messages\messages.py", line 1003, in create
+    return self._post(
+           ~~~~~~~~~~^
+        "/v1/messages",
+        ^^^^^^^^^^^^^^^
+    ...<30 lines>...
+        stream_cls=Stream[RawMessageStreamEvent],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\siste\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\anthropic\_base_client.py", line 1374, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\siste\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\anthropic\_base_client.py", line 1147, in request
+    raise self._make_status_error_from_response(err.response) from None
+anthropic.AuthenticationError: Error code: 401 - {'type': 'error', 'error': {'type': 'authentication_error', 'message': 'invalid x-api-key'}, 'request_id': 'req_011Cb1BmTWpqQ3f4NVadkTeM'}
+
+[2026-05-13 14:22:28] ============================================================
+[2026-05-13 14:22:28] INICIANDO ANÁLISIS RFM DIARIO — VEXIN
+[2026-05-13 14:22:28] ============================================================
+[2026-05-13 14:22:28] Leyendo Excel de Odoo...
+[2026-05-13 14:22:30] Columnas encontradas: ['Número', 'Fecha', 'Cliente', 'Etiqueta', 'Crédito', 'Débito', 'Subtotal', 'Vendedor', 'Empresa']
+[2026-05-13 14:22:30] Columnas mapeadas: {'cliente': 'Cliente', 'fecha': 'Fecha', 'total': 'Subtotal'}
+[2026-05-13 14:22:30] Registros válidos para análisis: 3873
+[2026-05-13 14:22:30] Calculando R, F, M...
+[2026-05-13 14:22:30] RFM calculado. Segmentos: {'Necesita atención': 147, 'Hibernando': 99, 'Champion': 59, 'Nuevo prometedor': 47, 'Alto valor potencial': 45, 'Leal': 19, 'No puedo perderlos': 14, 'En riesgo': 6}
+[2026-05-13 14:22:30] Llamando a Claude para generar dashboard HTML...
+[2026-05-13 14:22:31] ❌ ERROR: Error code: 401 - {'type': 'error', 'error': {'type': 'authentication_error', 'message': 'invalid x-api-key'}, 'request_id': 'req_011Cb1C493o5EbTzxg3kMZzV'}
+[2026-05-13 14:22:31] Traceback (most recent call last):
+  File "C:\Users\siste\rfm-vexin\rfm_diario.py", line 225, in main
+    html = generar_html_con_claude(rfm)
+  File "C:\Users\siste\rfm-vexin\rfm_diario.py", line 185, in generar_html_con_claude
+    message = client.messages.create(
+        model="claude-opus-4-5",
+        max_tokens=8000,
+        messages=[{"role": "user", "content": prompt}]
+    )
+  File "C:\Users\siste\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\anthropic\_utils\_utils.py", line 294, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Users\siste\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\anthropic\resources\messages\messages.py", line 1003, in create
+    return self._post(
+           ~~~~~~~~~~^
+        "/v1/messages",
+        ^^^^^^^^^^^^^^^
+    ...<30 lines>...
+        stream_cls=Stream[RawMessageStreamEvent],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\siste\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\anthropic\_base_client.py", line 1374, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\siste\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\anthropic\_base_client.py", line 1147, in request
+    raise self._make_status_error_from_response(err.response) from None
+anthropic.AuthenticationError: Error code: 401 - {'type': 'error', 'error': {'type': 'authentication_error', 'message': 'invalid x-api-key'}, 'request_id': 'req_011Cb1C493o5EbTzxg3kMZzV'}
+
+[2026-05-13 14:24:16] ============================================================
+[2026-05-13 14:24:16] INICIANDO ANÁLISIS RFM DIARIO — VEXIN
+[2026-05-13 14:24:16] ============================================================
+[2026-05-13 14:24:16] Leyendo Excel de Odoo...
+[2026-05-13 14:24:18] Columnas encontradas: ['Número', 'Fecha', 'Cliente', 'Etiqueta', 'Crédito', 'Débito', 'Subtotal', 'Vendedor', 'Empresa']
+[2026-05-13 14:24:18] Columnas mapeadas: {'cliente': 'Cliente', 'fecha': 'Fecha', 'total': 'Subtotal'}
+[2026-05-13 14:24:18] Registros válidos para análisis: 3873
+[2026-05-13 14:24:18] Calculando R, F, M...
+[2026-05-13 14:24:18] RFM calculado. Segmentos: {'Necesita atención': 147, 'Hibernando': 99, 'Champion': 59, 'Nuevo prometedor': 47, 'Alto valor potencial': 45, 'Leal': 19, 'No puedo perderlos': 14, 'En riesgo': 6}
+[2026-05-13 14:24:18] Llamando a Claude para generar dashboard HTML...
+[2026-05-13 14:25:37] Guardando index.html...
+[2026-05-13 14:25:37] Haciendo git push a GitHub Pages...
+[2026-05-13 14:25:37] OK: C:\Users\siste\rfm-vexin add index.html
