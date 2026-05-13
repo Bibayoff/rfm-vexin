@@ -13,8 +13,8 @@
         
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f5f6fa;
-            color: #2c3e50;
+            background-color: #f5f7fa;
+            color: #333;
             line-height: 1.6;
         }
         
@@ -70,156 +70,167 @@
             padding: 20px;
         }
         
-        .summary-grid {
+        .filters {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        
+        .filters input, .filters select {
+            padding: 12px 16px;
+            border: 2px solid #e0e5ec;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+        
+        .filters input {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .filters select {
+            min-width: 200px;
+            background: white;
+            cursor: pointer;
+        }
+        
+        .filters input:focus, .filters select:focus {
+            outline: none;
+            border-color: #F47920;
+            box-shadow: 0 0 0 3px rgba(244, 121, 32, 0.1);
+        }
+        
+        .section-title {
+            font-size: 1.4rem;
+            color: #1B2B5E;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #F47920;
+            display: inline-block;
+        }
+        
+        .cards-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 20px;
-            margin-bottom: 30px;
+            margin-bottom: 35px;
         }
         
-        .segment-card {
+        .card {
             background: white;
             border-radius: 12px;
             padding: 20px;
             box-shadow: 0 2px 10px rgba(0,0,0,0.08);
             border-left: 5px solid;
-            transition: transform 0.2s, box-shadow 0.2s;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
         
-        .segment-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 20px rgba(0,0,0,0.12);
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
         }
         
-        .segment-card.champion { border-left-color: #27ae60; }
-        .segment-card.en-riesgo { border-left-color: #e74c3c; }
-        .segment-card.no-puedo-perderlos { border-left-color: #c0392b; }
-        .segment-card.leal { border-left-color: #2980b9; }
-        .segment-card.nuevo-prometedor { border-left-color: #16a085; }
-        .segment-card.hibernando { border-left-color: #7f8c8d; }
-        .segment-card.alto-valor-potencial { border-left-color: #f39c12; }
-        .segment-card.necesita-atencion { border-left-color: #95a5a6; }
-        
-        .segment-header {
+        .card-header {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
             margin-bottom: 15px;
         }
         
-        .segment-name {
+        .card-title {
             font-size: 1.1rem;
             font-weight: 600;
             color: #1B2B5E;
         }
         
-        .segment-count {
-            background: #1B2B5E;
-            color: white;
-            padding: 4px 12px;
+        .card-badge {
+            padding: 4px 10px;
             border-radius: 20px;
-            font-size: 0.85rem;
+            font-size: 0.75rem;
             font-weight: 600;
+            color: white;
         }
         
-        .segment-stats {
+        .card-stats {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: repeat(3, 1fr);
             gap: 10px;
             margin-bottom: 15px;
         }
         
         .stat {
             text-align: center;
-            padding: 10px;
-            background: #f8f9fa;
-            border-radius: 8px;
         }
         
         .stat-value {
-            font-size: 1.1rem;
+            font-size: 1.3rem;
             font-weight: 700;
             color: #1B2B5E;
         }
         
         .stat-label {
             font-size: 0.75rem;
-            color: #7f8c8d;
+            color: #666;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
         }
         
-        .segment-action {
+        .card-action {
+            background: #f8f9fb;
+            padding: 12px;
+            border-radius: 8px;
             font-size: 0.85rem;
             color: #555;
-            padding: 10px;
-            background: linear-gradient(135deg, #fff9f5 0%, #fef5ee 100%);
-            border-radius: 8px;
             border-left: 3px solid #F47920;
         }
         
-        .segment-action strong {
-            color: #F47920;
-        }
-        
-        .filters-section {
-            background: white;
-            padding: 20px;
-            border-radius: 12px;
-            margin-bottom: 20px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-        }
-        
-        .filters-title {
-            font-size: 1rem;
-            font-weight: 600;
+        .card-action strong {
             color: #1B2B5E;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
         }
         
-        .filters-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 15px;
-        }
+        /* Colores por segmento */
+        .seg-champion { border-left-color: #27ae60; }
+        .seg-champion .card-badge { background: #27ae60; }
         
-        .filter-group label {
-            display: block;
-            font-size: 0.85rem;
-            color: #7f8c8d;
-            margin-bottom: 5px;
-        }
+        .seg-en-riesgo { border-left-color: #e74c3c; }
+        .seg-en-riesgo .card-badge { background: #e74c3c; }
         
-        .filter-group input,
-        .filter-group select {
-            width: 100%;
-            padding: 12px 15px;
-            border: 2px solid #e0e0e0;
-            border-radius: 8px;
-            font-size: 1rem;
-            transition: border-color 0.2s;
-        }
+        .seg-no-puedo-perderlos { border-left-color: #c0392b; }
+        .seg-no-puedo-perderlos .card-badge { background: #c0392b; }
         
-        .filter-group input:focus,
-        .filter-group select:focus {
-            outline: none;
-            border-color: #F47920;
-        }
+        .seg-leal { border-left-color: #2980b9; }
+        .seg-leal .card-badge { background: #2980b9; }
         
-        .table-section {
+        .seg-nuevo-prometedor { border-left-color: #16a085; }
+        .seg-nuevo-prometedor .card-badge { background: #16a085; }
+        
+        .seg-hibernando { border-left-color: #7f8c8d; }
+        .seg-hibernando .card-badge { background: #7f8c8d; }
+        
+        .seg-alto-valor-potencial { border-left-color: #f39c12; }
+        .seg-alto-valor-potencial .card-badge { background: #f39c12; }
+        
+        .seg-necesita-atencion { border-left-color: #95a5a6; }
+        .seg-necesita-atencion .card-badge { background: #95a5a6; }
+        
+        .table-container {
             background: white;
             border-radius: 12px;
             box-shadow: 0 2px 10px rgba(0,0,0,0.08);
             overflow: hidden;
+            margin-bottom: 30px;
         }
         
         .table-header {
+            padding: 20px;
             background: #1B2B5E;
             color: white;
-            padding: 20px;
         }
         
         .table-header h2 {
@@ -227,33 +238,32 @@
             font-weight: 600;
         }
         
-        .table-container {
+        .table-scroll {
             overflow-x: auto;
         }
         
         table {
             width: 100%;
             border-collapse: collapse;
+            min-width: 800px;
         }
         
         th {
-            background: #f8f9fa;
+            background: #f8f9fb;
             padding: 15px 12px;
             text-align: left;
-            font-size: 0.8rem;
+            font-weight: 600;
+            color: #1B2B5E;
+            font-size: 0.85rem;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            color: #1B2B5E;
-            font-weight: 600;
-            white-space: nowrap;
-            position: sticky;
-            top: 0;
+            border-bottom: 2px solid #e0e5ec;
         }
         
         td {
-            padding: 15px 12px;
-            border-bottom: 1px solid #f0f0f0;
-            font-size: 0.9rem;
+            padding: 14px 12px;
+            border-bottom: 1px solid #f0f2f5;
+            font-size: 0.95rem;
         }
         
         tr:hover {
@@ -271,33 +281,33 @@
             border-radius: 20px;
             font-size: 0.75rem;
             font-weight: 600;
+            color: white;
             white-space: nowrap;
         }
         
-        .segment-badge.champion { background: #d5f4e6; color: #27ae60; }
-        .segment-badge.en-riesgo { background: #fce4e4; color: #e74c3c; }
-        .segment-badge.no-puedo-perderlos { background: #f5d5d5; color: #c0392b; }
-        .segment-badge.leal { background: #d6eaf8; color: #2980b9; }
-        .segment-badge.nuevo-prometedor { background: #d1f2eb; color: #16a085; }
-        .segment-badge.hibernando { background: #e5e8e8; color: #7f8c8d; }
-        .segment-badge.alto-valor-potencial { background: #fef5e7; color: #f39c12; }
-        .segment-badge.necesita-atencion { background: #eaecee; color: #5d6d7e; }
-        
         .score-badge {
-            background: linear-gradient(135deg, #1B2B5E 0%, #2a3f7e 100%);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #1B2B5E, #2a3f7e);
             color: white;
-            padding: 5px 10px;
-            border-radius: 8px;
             font-weight: 700;
             font-size: 0.9rem;
-            display: inline-block;
         }
         
-        .score-detail {
-            font-size: 0.7rem;
-            color: #7f8c8d;
-            display: block;
-            margin-top: 3px;
+        .score-high {
+            background: linear-gradient(135deg, #27ae60, #2ecc71);
+        }
+        
+        .score-medium {
+            background: linear-gradient(135deg, #f39c12, #f1c40f);
+        }
+        
+        .score-low {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
         }
         
         .money {
@@ -305,65 +315,63 @@
             color: #27ae60;
         }
         
-        .days-alert {
+        .days-warning {
             color: #e74c3c;
             font-weight: 600;
         }
         
-        .days-ok {
-            color: #27ae60;
-        }
-        
         .footer {
             text-align: center;
-            padding: 30px 20px;
-            color: #7f8c8d;
+            padding: 25px;
+            background: #1B2B5E;
+            color: white;
             font-size: 0.9rem;
         }
         
-        .footer strong {
-            color: #1B2B5E;
+        .footer span {
+            color: #F47920;
         }
         
         .no-results {
             text-align: center;
             padding: 40px;
-            color: #7f8c8d;
+            color: #666;
+            font-size: 1.1rem;
         }
         
-        .total-row {
-            background: #f8f9fa;
-            font-weight: 600;
-        }
-        
-        .kpi-banner {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin-bottom: 25px;
-        }
-        
-        .kpi-item {
-            background: linear-gradient(135deg, #1B2B5E 0%, #2a3f7e 100%);
-            color: white;
+        .summary-bar {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            background: white;
             padding: 20px;
             border-radius: 12px;
-            text-align: center;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
         }
         
-        .kpi-value {
+        .summary-item {
+            flex: 1;
+            min-width: 150px;
+            text-align: center;
+            padding: 10px;
+            border-right: 1px solid #e0e5ec;
+        }
+        
+        .summary-item:last-child {
+            border-right: none;
+        }
+        
+        .summary-value {
             font-size: 1.8rem;
             font-weight: 700;
-            margin-bottom: 5px;
+            color: #F47920;
         }
         
-        .kpi-label {
+        .summary-label {
             font-size: 0.85rem;
-            opacity: 0.9;
-        }
-        
-        .kpi-item.highlight {
-            background: linear-gradient(135deg, #F47920 0%, #ff9a56 100%);
+            color: #666;
+            margin-top: 5px;
         }
         
         @media (max-width: 768px) {
@@ -380,36 +388,58 @@
                 font-size: 2rem;
             }
             
-            .summary-grid {
+            .filters {
+                flex-direction: column;
+            }
+            
+            .filters input, .filters select {
+                width: 100%;
+                min-width: unset;
+            }
+            
+            .card-stats {
                 grid-template-columns: 1fr;
             }
             
-            .filters-grid {
-                grid-template-columns: 1fr;
+            .summary-bar {
+                flex-direction: column;
             }
             
-            .client-name {
-                max-width: 150px;
-                word-break: break-word;
+            .summary-item {
+                border-right: none;
+                border-bottom: 1px solid #e0e5ec;
+                padding: 15px 10px;
+            }
+            
+            .summary-item:last-child {
+                border-bottom: none;
+            }
+            
+            .section-title {
+                font-size: 1.2rem;
             }
             
             th, td {
                 padding: 10px 8px;
-                font-size: 0.8rem;
+                font-size: 0.85rem;
             }
             
-            .kpi-banner {
-                grid-template-columns: 1fr 1fr;
-            }
-            
-            .kpi-value {
-                font-size: 1.4rem;
+            .client-name {
+                max-width: 150px;
             }
         }
         
         @media (max-width: 480px) {
-            .kpi-banner {
-                grid-template-columns: 1fr;
+            .container {
+                padding: 10px;
+            }
+            
+            .card {
+                padding: 15px;
+            }
+            
+            .stat-value {
+                font-size: 1.1rem;
             }
         }
     </style>
@@ -420,230 +450,252 @@
             <div class="logo">VEX<span>IN</span></div>
             <div class="header-info">
                 <h1>Dashboard Análisis RFM - Vendedores</h1>
-                <span class="date">📅 13/05/2026 14:24</span>
+                <div class="date">📅 13/05/2026 17:05</div>
             </div>
         </div>
     </header>
     
     <main class="container">
-        <div class="kpi-banner">
-            <div class="kpi-item">
-                <div class="kpi-value">536</div>
-                <div class="kpi-label">Total Clientes</div>
+        <div class="summary-bar">
+            <div class="summary-item">
+                <div class="summary-value">436</div>
+                <div class="summary-label">Total Clientes</div>
             </div>
-            <div class="kpi-item highlight">
-                <div class="kpi-value">$132.0M</div>
-                <div class="kpi-label">Facturación Total</div>
+            <div class="summary-item">
+                <div class="summary-value">$132.0M</div>
+                <div class="summary-label">Facturación Total</div>
             </div>
-            <div class="kpi-item">
-                <div class="kpi-value">59</div>
-                <div class="kpi-label">Clientes Champion</div>
+            <div class="summary-item">
+                <div class="summary-value">$302.8K</div>
+                <div class="summary-label">Ticket Promedio</div>
             </div>
-            <div class="kpi-item">
-                <div class="kpi-value">167</div>
-                <div class="kpi-label">Requieren Acción</div>
+            <div class="summary-item">
+                <div class="summary-value">59</div>
+                <div class="summary-label">Champions</div>
             </div>
         </div>
         
-        <h2 style="color: #1B2B5E; margin-bottom: 20px; font-size: 1.3rem;">📊 Resumen por Segmento</h2>
+        <div class="filters">
+            <input type="text" id="searchInput" placeholder="🔍 Buscar cliente por nombre...">
+            <select id="segmentFilter">
+                <option value="">Todos los segmentos</option>
+                <option value="Champion">Champion</option>
+                <option value="Leal">Leal</option>
+                <option value="Alto valor potencial">Alto valor potencial</option>
+                <option value="Nuevo prometedor">Nuevo prometedor</option>
+                <option value="Necesita atención">Necesita atención</option>
+                <option value="En riesgo">En riesgo</option>
+                <option value="No puedo perderlos">No puedo perderlos</option>
+                <option value="Hibernando">Hibernando</option>
+            </select>
+        </div>
         
-        <div class="summary-grid">
-            <div class="segment-card champion">
-                <div class="segment-header">
-                    <span class="segment-name">🏆 Champion</span>
-                    <span class="segment-count">59 clientes</span>
+        <h2 class="section-title">📊 Resumen por Segmento</h2>
+        <div class="cards-grid">
+            <div class="card seg-champion">
+                <div class="card-header">
+                    <span class="card-title">Champion</span>
+                    <span class="card-badge">59 clientes</span>
                 </div>
-                <div class="segment-stats">
+                <div class="card-stats">
+                    <div class="stat">
+                        <div class="stat-value">59</div>
+                        <div class="stat-label">Clientes</div>
+                    </div>
                     <div class="stat">
                         <div class="stat-value">$74.8M</div>
                         <div class="stat-label">Facturación</div>
                     </div>
                     <div class="stat">
                         <div class="stat-value">$1.27M</div>
-                        <div class="stat-label">Ticket Prom.</div>
+                        <div class="stat-label">Ticket Prom</div>
                     </div>
                 </div>
-                <div class="segment-action">
-                    <strong>Acción:</strong> Mantener relación premium. Ofrecer beneficios exclusivos y acceso prioritario a nuevos productos.
+                <div class="card-action">
+                    <strong>📌 Acción:</strong> Mantener relación cercana, ofrecer beneficios exclusivos y nuevos productos premium.
                 </div>
             </div>
             
-            <div class="segment-card leal">
-                <div class="segment-header">
-                    <span class="segment-name">💙 Leal</span>
-                    <span class="segment-count">19 clientes</span>
+            <div class="card seg-leal">
+                <div class="card-header">
+                    <span class="card-title">Leal</span>
+                    <span class="card-badge">19 clientes</span>
                 </div>
-                <div class="segment-stats">
+                <div class="card-stats">
+                    <div class="stat">
+                        <div class="stat-value">19</div>
+                        <div class="stat-label">Clientes</div>
+                    </div>
                     <div class="stat">
                         <div class="stat-value">$28.3M</div>
                         <div class="stat-label">Facturación</div>
                     </div>
                     <div class="stat">
                         <div class="stat-value">$1.49M</div>
-                        <div class="stat-label">Ticket Prom.</div>
+                        <div class="stat-label">Ticket Prom</div>
                     </div>
                 </div>
-                <div class="segment-action">
-                    <strong>Acción:</strong> Reconocer su lealtad con programas de fidelización. Buscar oportunidades de venta cruzada.
+                <div class="card-action">
+                    <strong>📌 Acción:</strong> Recompensar lealtad con programas especiales, buscar upselling y cross-selling.
                 </div>
             </div>
             
-            <div class="segment-card necesita-atencion">
-                <div class="segment-header">
-                    <span class="segment-name">⚠️ Necesita Atención</span>
-                    <span class="segment-count">147 clientes</span>
+            <div class="card seg-necesita-atencion">
+                <div class="card-header">
+                    <span class="card-title">Necesita Atención</span>
+                    <span class="card-badge">147 clientes</span>
                 </div>
-                <div class="segment-stats">
+                <div class="card-stats">
+                    <div class="stat">
+                        <div class="stat-value">147</div>
+                        <div class="stat-label">Clientes</div>
+                    </div>
                     <div class="stat">
                         <div class="stat-value">$13.1M</div>
                         <div class="stat-label">Facturación</div>
                     </div>
                     <div class="stat">
                         <div class="stat-value">$89.0K</div>
-                        <div class="stat-label">Ticket Prom.</div>
+                        <div class="stat-label">Ticket Prom</div>
                     </div>
                 </div>
-                <div class="segment-action">
-                    <strong>Acción:</strong> Contactar proactivamente para entender necesidades. Ofrecer promociones personalizadas para reactivar.
+                <div class="card-action">
+                    <strong>📌 Acción:</strong> Contactar proactivamente, entender necesidades actuales y reactivar con ofertas personalizadas.
                 </div>
             </div>
             
-            <div class="segment-card alto-valor-potencial">
-                <div class="segment-header">
-                    <span class="segment-name">⭐ Alto Valor Potencial</span>
-                    <span class="segment-count">45 clientes</span>
+            <div class="card seg-alto-valor-potencial">
+                <div class="card-header">
+                    <span class="card-title">Alto Valor Potencial</span>
+                    <span class="card-badge">45 clientes</span>
                 </div>
-                <div class="segment-stats">
+                <div class="card-stats">
+                    <div class="stat">
+                        <div class="stat-value">45</div>
+                        <div class="stat-label">Clientes</div>
+                    </div>
                     <div class="stat">
                         <div class="stat-value">$8.8M</div>
                         <div class="stat-label">Facturación</div>
                     </div>
                     <div class="stat">
                         <div class="stat-value">$195.3K</div>
-                        <div class="stat-label">Ticket Prom.</div>
+                        <div class="stat-label">Ticket Prom</div>
                     </div>
                 </div>
-                <div class="segment-action">
-                    <strong>Acción:</strong> Desarrollar estrategia de crecimiento. Incrementar frecuencia de compra con seguimiento constante.
+                <div class="card-action">
+                    <strong>📌 Acción:</strong> Incrementar frecuencia de contacto, ofrecer catálogo completo y condiciones preferenciales.
                 </div>
             </div>
             
-            <div class="segment-card nuevo-prometedor">
-                <div class="segment-header">
-                    <span class="segment-name">🌱 Nuevo Prometedor</span>
-                    <span class="segment-count">47 clientes</span>
+            <div class="card seg-no-puedo-perderlos">
+                <div class="card-header">
+                    <span class="card-title">No Puedo Perderlos</span>
+                    <span class="card-badge">14 clientes</span>
                 </div>
-                <div class="segment-stats">
+                <div class="card-stats">
                     <div class="stat">
-                        <div class="stat-value">$1.0M</div>
-                        <div class="stat-label">Facturación</div>
+                        <div class="stat-value">14</div>
+                        <div class="stat-label">Clientes</div>
                     </div>
-                    <div class="stat">
-                        <div class="stat-value">$22.2K</div>
-                        <div class="stat-label">Ticket Prom.</div>
-                    </div>
-                </div>
-                <div class="segment-action">
-                    <strong>Acción:</strong> Nutrir la relación desde el inicio. Dar seguimiento cercano y mostrar todo el catálogo de productos.
-                </div>
-            </div>
-            
-            <div class="segment-card no-puedo-perderlos">
-                <div class="segment-header">
-                    <span class="segment-name">🚨 No Puedo Perderlos</span>
-                    <span class="segment-count">14 clientes</span>
-                </div>
-                <div class="segment-stats">
                     <div class="stat">
                         <div class="stat-value">$4.0M</div>
                         <div class="stat-label">Facturación</div>
                     </div>
                     <div class="stat">
                         <div class="stat-value">$283.3K</div>
-                        <div class="stat-label">Ticket Prom.</div>
+                        <div class="stat-label">Ticket Prom</div>
                     </div>
                 </div>
-                <div class="segment-action">
-                    <strong>Acción:</strong> ¡URGENTE! Contacto inmediato de alto nivel. Investigar problemas y ofrecer condiciones especiales.
+                <div class="card-action">
+                    <strong>📌 Acción:</strong> ¡URGENTE! Llamar inmediatamente, ofrecer condiciones especiales para recuperar.
                 </div>
             </div>
             
-            <div class="segment-card en-riesgo">
-                <div class="segment-header">
-                    <span class="segment-name">🔴 En Riesgo</span>
-                    <span class="segment-count">6 clientes</span>
+            <div class="card seg-nuevo-prometedor">
+                <div class="card-header">
+                    <span class="card-title">Nuevo Prometedor</span>
+                    <span class="card-badge">47 clientes</span>
                 </div>
-                <div class="segment-stats">
+                <div class="card-stats">
+                    <div class="stat">
+                        <div class="stat-value">47</div>
+                        <div class="stat-label">Clientes</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value">$1.0M</div>
+                        <div class="stat-label">Facturación</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value">$22.2K</div>
+                        <div class="stat-label">Ticket Prom</div>
+                    </div>
+                </div>
+                <div class="card-action">
+                    <strong>📌 Acción:</strong> Dar seguimiento cercano, educar sobre portafolio completo y convertir en clientes leales.
+                </div>
+            </div>
+            
+            <div class="card seg-en-riesgo">
+                <div class="card-header">
+                    <span class="card-title">En Riesgo</span>
+                    <span class="card-badge">6 clientes</span>
+                </div>
+                <div class="card-stats">
+                    <div class="stat">
+                        <div class="stat-value">6</div>
+                        <div class="stat-label">Clientes</div>
+                    </div>
                     <div class="stat">
                         <div class="stat-value">$374.7K</div>
                         <div class="stat-label">Facturación</div>
                     </div>
                     <div class="stat">
                         <div class="stat-value">$62.4K</div>
-                        <div class="stat-label">Ticket Prom.</div>
+                        <div class="stat-label">Ticket Prom</div>
                     </div>
                 </div>
-                <div class="segment-action">
-                    <strong>Acción:</strong> Campaña de recuperación urgente. Llamada personal para identificar causas de inactividad.
+                <div class="card-action">
+                    <strong>📌 Acción:</strong> Contactar esta semana, identificar problemas y ofrecer soluciones para retener.
                 </div>
             </div>
             
-            <div class="segment-card hibernando">
-                <div class="segment-header">
-                    <span class="segment-name">😴 Hibernando</span>
-                    <span class="segment-count">99 clientes</span>
+            <div class="card seg-hibernando">
+                <div class="card-header">
+                    <span class="card-title">Hibernando</span>
+                    <span class="card-badge">99 clientes</span>
                 </div>
-                <div class="segment-stats">
+                <div class="card-stats">
+                    <div class="stat">
+                        <div class="stat-value">99</div>
+                        <div class="stat-label">Clientes</div>
+                    </div>
                     <div class="stat">
                         <div class="stat-value">$1.7M</div>
                         <div class="stat-label">Facturación</div>
                     </div>
                     <div class="stat">
                         <div class="stat-value">$17.1K</div>
-                        <div class="stat-label">Ticket Prom.</div>
+                        <div class="stat-label">Ticket Prom</div>
                     </div>
                 </div>
-                <div class="segment-action">
-                    <strong>Acción:</strong> Campaña de reactivación con ofertas atractivas. Evaluar si vale la pena el esfuerzo de recuperación.
+                <div class="card-action">
+                    <strong>📌 Acción:</strong> Campaña de reactivación con ofertas atractivas, evaluar si vale la pena recuperar.
                 </div>
             </div>
         </div>
         
-        <div class="filters-section">
-            <div class="filters-title">🔍 Filtros de búsqueda</div>
-            <div class="filters-grid">
-                <div class="filter-group">
-                    <label for="searchInput">Buscar cliente</label>
-                    <input type="text" id="searchInput" placeholder="Escribe el nombre del cliente...">
-                </div>
-                <div class="filter-group">
-                    <label for="segmentFilter">Filtrar por segmento</label>
-                    <select id="segmentFilter">
-                        <option value="">Todos los segmentos</option>
-                        <option value="Champion">🏆 Champion</option>
-                        <option value="Leal">💙 Leal</option>
-                        <option value="Necesita atención">⚠️ Necesita atención</option>
-                        <option value="Alto valor potencial">⭐ Alto valor potencial</option>
-                        <option value="Nuevo prometedor">🌱 Nuevo prometedor</option>
-                        <option value="No puedo perderlos">🚨 No puedo perderlos</option>
-                        <option value="En riesgo">🔴 En riesgo</option>
-                        <option value="Hibernando">😴 Hibernando</option>
-                    </select>
-                </div>
-            </div>
-        </div>
-        
-        <div class="table-section">
+        <div class="table-container">
             <div class="table-header">
-                <h2>📋 Top 50 Clientes por Score RFM</h2>
+                <h2>🏆 Top 50 Clientes por Score RFM</h2>
             </div>
-            <div class="table-container">
+            <div class="table-scroll">
                 <table id="clientsTable">
                     <thead>
                         <tr>
                             <th>Cliente</th>
                             <th>Segmento</th>
-                            <th>Días sin comprar</th>
+                            <th>Días sin Comprar</th>
                             <th># Pedidos</th>
                             <th>Facturación</th>
                             <th>Score RFM</th>
@@ -654,36 +706,40 @@
                 </table>
             </div>
             <div id="noResults" class="no-results" style="display: none;">
-                No se encontraron clientes con los filtros aplicados.
+                No se encontraron clientes con los filtros seleccionados
             </div>
         </div>
     </main>
     
     <footer class="footer">
-        <p>Actualizado automáticamente cada día · <strong>Vexin Global Supply</strong></p>
-        <p style="margin-top: 5px; font-size: 0.8rem;">Dashboard RFM v1.0 | Análisis de Recencia, Frecuencia y Monto</p>
+        Actualizado automáticamente cada día · <span>Vexin Global Supply</span> © 2026
     </footer>
     
     <script>
         const clientsData = [
-            {"cliente":"TECNOPRO DE MEXICO","segmento":"Champion","recencia_dias":16,"frecuencia":47,"monto":360954.41,"score_r":5,"score_f":4,"score_m":5,"score_total":14},
-            {"cliente":"TECNOLOGIA MODIFICADA","segmento":"Champion","recencia_dias":19,"frecuencia":16,"monto":240913.45,"score_r":5,"score_f":4,"score_m":5,"score_total":14},
-            {"cliente":"SEPSA, SERVICIOS INTEGRALES","segmento":"Champion","recencia_dias":5,"frecuencia":95,"monto":1022018.24,"score_r":5,"score_f":4,"score_m":5,"score_total":14},
-            {"cliente":"MODINE TRANSFERENCIA DE CALOR","segmento":"Champion","recencia_dias":7,"frecuencia":14,"monto":204460.94,"score_r":5,"score_f":4,"score_m":5,"score_total":14},
-            {"cliente":"MISSION FOODS MEXICO","segmento":"Champion","recencia_dias":9,"frecuencia":26,"monto":1281705.47,"score_r":5,"score_f":4,"score_m":5,"score_total":14},
-            {"cliente":"MANITOWOC FSG MANUFACTURA MEXICO","segmento":"Champion","recencia_dias":5,"frecuencia":46,"monto":1088134.01,"score_r":5,"score_f":4,"score_m":5,"score_total":14},
-            {"cliente":"LUAL PROVEEDORA INDUSTRIAL","segmento":"Champion","recencia_dias":1,"frecuencia":96,"monto":3137506.82,"score_r":5,"score_f":4,"score_m":5,"score_total":14},
-            {"cliente":"LEGO OPERACIONES DE MEXICO","segmento":"Champion","recencia_dias":13,"frecuencia":40,"monto":1310321.79,"score_r":5,"score_f":4,"score_m":5,"score_total":14},
-            {"cliente":"PROVEEDORA FARMACEUTICA RASE","segmento":"Champion","recencia_dias":7,"frecuencia":38,"monto":304472.47,"score_r":5,"score_f":4,"score_m":5,"score_total":14},
-            {"cliente":"LOGISTICA Y EMPAQUE FACIL","segmento":"Champion","recencia_dias":0,"frecuencia":64,"monto":1272257.73,"score_r":5,"score_f":4,"score_m":5,"score_total":14},
-            {"cliente":"LOCOMOTIVE MANUFACTURING AND SERVICES","segmento":"Champion","recencia_dias":0,"frecuencia":11,"monto":205774.17,"score_r":5,"score_f":4,"score_m":5,"score_total":14},
-            {"cliente":"BENTENG SCIENCE & TECHNOLOGY MEXICO","segmento":"Champion","recencia_dias":9,"frecuencia":14,"monto":283029.97,"score_r":5,"score_f":4,"score_m":5,"score_total":14},
-            {"cliente":"CORNING OPTICAL COMMUNICATIONS","segmento":"Champion","recencia_dias":16,"frecuencia":31,"monto":1218978.63,"score_r":5,"score_f":4,"score_m":5,"score_total":14},
-            {"cliente":"CORNING MONTERREY","segmento":"Champion","recencia_dias":13,"frecuencia":91,"monto":1934285.4,"score_r":5,"score_f":4,"score_m":5,"score_total":14},
-            {"cliente":"LANDIS & GYR","segmento":"Champion","recencia_dias":14,"frecuencia":35,"monto":1223359.86,"score_r":5,"score_f":4,"score_m":5,"score_total":14},
-            {"cliente":"COMPAÑIA CERVECERA DE COAHUILA","segmento":"Champion","recencia_dias":5,"frecuencia":60,"monto":1522075.98,"score_r":5,"score_f":4,"score_m":5,"score_total":14},
-            {"cliente":"LEAR MEXICAN TRIM OPERATIONS","segmento":"Champion","recencia_dias":8,"frecuencia":104,"monto":2799123.03,"score_r":5,"score_f":4,"score_m":5,"score_total":14},
-            {"cliente":"CONSORCIO INDUSTRIAL MEXICANO DE AUTOPARTES","segmento":"Champion","recencia_dias":13,"frecuencia":79,"monto":2702703.82,"score_r":5,"score_f":4,"score_m":5,"score_total":14},
-            {"cliente":"LEAR THERMAL COMFORT SYSTEMS MEXICO","segmento":"Champion","recencia_dias":13,"frecuencia":15,"monto":479442.23,"score_r":5,"score_f":4,"score_m":5,"score_total":14},
-            {"cliente":"HYUNDAI WIA MEXICO","segmento":"Champion","recencia_dias":5,"frecuencia":14,"monto":533203.38,"score_r":5,"score_f":4,"score_m":5,"score_total":14},
-            {"cliente":"INDUSTMAQ INSUMOS INDUSTRIALES
+            {"cliente":"TECNOPRO DE MEXICO","segmento":"Champion","recencia_dias":16,"frecuencia":47,"monto":360954.41,"score_total":14},
+            {"cliente":"TECNOLOGIA MODIFICADA","segmento":"Champion","recencia_dias":19,"frecuencia":16,"monto":240913.45,"score_total":14},
+            {"cliente":"SEPSA, SERVICIOS INTEGRALES","segmento":"Champion","recencia_dias":5,"frecuencia":95,"monto":1022018.24,"score_total":14},
+            {"cliente":"MODINE TRANSFERENCIA DE CALOR","segmento":"Champion","recencia_dias":7,"frecuencia":14,"monto":204460.94,"score_total":14},
+            {"cliente":"MISSION FOODS MEXICO","segmento":"Champion","recencia_dias":9,"frecuencia":26,"monto":1281705.47,"score_total":14},
+            {"cliente":"MANITOWOC FSG MANUFACTURA MEXICO","segmento":"Champion","recencia_dias":5,"frecuencia":46,"monto":1088134.01,"score_total":14},
+            {"cliente":"LUAL PROVEEDORA INDUSTRIAL","segmento":"Champion","recencia_dias":1,"frecuencia":96,"monto":3137506.82,"score_total":14},
+            {"cliente":"LEGO OPERACIONES DE MEXICO","segmento":"Champion","recencia_dias":13,"frecuencia":40,"monto":1310321.79,"score_total":14},
+            {"cliente":"PROVEEDORA FARMACEUTICA RASE","segmento":"Champion","recencia_dias":7,"frecuencia":38,"monto":304472.47,"score_total":14},
+            {"cliente":"LOGISTICA Y EMPAQUE FACIL","segmento":"Champion","recencia_dias":0,"frecuencia":64,"monto":1272257.73,"score_total":14},
+            {"cliente":"LOCOMOTIVE MANUFACTURING AND SERVICES","segmento":"Champion","recencia_dias":0,"frecuencia":11,"monto":205774.17,"score_total":14},
+            {"cliente":"BENTENG SCIENCE & TECHNOLOGY MEXICO","segmento":"Champion","recencia_dias":9,"frecuencia":14,"monto":283029.97,"score_total":14},
+            {"cliente":"CORNING OPTICAL COMMUNICATIONS","segmento":"Champion","recencia_dias":16,"frecuencia":31,"monto":1218978.63,"score_total":14},
+            {"cliente":"CORNING MONTERREY","segmento":"Champion","recencia_dias":13,"frecuencia":91,"monto":1934285.4,"score_total":14},
+            {"cliente":"LANDIS & GYR","segmento":"Champion","recencia_dias":14,"frecuencia":35,"monto":1223359.86,"score_total":14},
+            {"cliente":"COMPAÑIA CERVECERA DE COAHUILA","segmento":"Champion","recencia_dias":5,"frecuencia":60,"monto":1522075.98,"score_total":14},
+            {"cliente":"LEAR MEXICAN TRIM OPERATIONS","segmento":"Champion","recencia_dias":8,"frecuencia":104,"monto":2799123.03,"score_total":14},
+            {"cliente":"CONSORCIO INDUSTRIAL MEXICANO DE AUTOPARTES","segmento":"Champion","recencia_dias":13,"frecuencia":79,"monto":2702703.82,"score_total":14},
+            {"cliente":"LEAR THERMAL COMFORT SYSTEMS MEXICO","segmento":"Champion","recencia_dias":13,"frecuencia":15,"monto":479442.23,"score_total":14},
+            {"cliente":"HYUNDAI WIA MEXICO","segmento":"Champion","recencia_dias":5,"frecuencia":14,"monto":533203.38,"score_total":14},
+            {"cliente":"INDUSTMAQ INSUMOS INDUSTRIALES","segmento":"Champion","recencia_dias":0,"frecuencia":12,"monto":513529.43,"score_total":14},
+            {"cliente":"HYUNDAI GLOVIS MEXICO","segmento":"Champion","recencia_dias":9,"frecuencia":49,"monto":4129086.57,"score_total":14},
+            {"cliente":"GENERAL MOTORS DE MEXICO","segmento":"Champion","recencia_dias":1,"frecuencia":421,"monto":29641792.53,"score_total":14},
+            {"cliente":"FASTENAL MEXICO","segmento":"Champion","recencia_dias":15,"frecuencia":14,"monto":1020735.55,"score_total":14},
+            {"cliente":"GILL INDUSTRIES OF MEXICO","segmento":"Champion","recencia_dias":16,"frecuencia":20,"monto":1127101.08,"score_total":14},
+            {"cliente":"ESCAL
